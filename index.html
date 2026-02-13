@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
         
-        /* Animated background grid */
         .bg-grid {
             position: fixed;
             top: 0;
@@ -55,7 +54,6 @@
             100% { transform: translate(50px, 50px); }
         }
         
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -123,7 +121,6 @@
             width: 100%;
         }
         
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -227,7 +224,6 @@
             left: 0;
         }
         
-        /* Clients Section */
         .clients {
             padding: 6rem 2rem;
             background: var(--bg);
@@ -271,7 +267,6 @@
             filter: grayscale(0%);
         }
         
-        /* Services Section */
         .services {
             padding: 6rem 2rem;
             background: var(--primary);
@@ -388,7 +383,6 @@
             font-weight: bold;
         }
         
-        /* Contact Section */
         .contact {
             padding: 6rem 2rem;
             background: var(--secondary);
@@ -447,7 +441,6 @@
             color: var(--text-bright);
         }
         
-        /* Footer */
         footer {
             padding: 2rem;
             background: var(--primary);
@@ -462,7 +455,6 @@
             text-decoration: none;
         }
         
-        /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -508,7 +500,6 @@
             }
         }
         
-        /* Scroll animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -554,7 +545,6 @@
             </div>
             
             <div class="clients-grid fade-in">
-                <!-- Logos de clientes -->
                 <div class="client-logo">
                     <img src="Cliente1.png" alt="Cliente 1">
                 </div>
@@ -658,11 +648,11 @@
                 </div>
                 
                 <div class="contact-info">
-                    <a href="/cdn-cgi/l/email-protection#1f796d7e717c766c7c706b7e71782c5f78727e7673317c7072" class="contact-item fade-in">
+                    <a href="mailto:franciscotang3@gmail.com" class="contact-item fade-in">
                         <span class="contact-icon">📧</span>
                         <div class="contact-details">
                             <span class="contact-label">Email</span>
-                            <span class="contact-value"><span class="__cf_email__" data-cfemail="442236252a272d37272b30252a2377042329252d286a272b29">[email&#160;protected]</span></span>
+                            <span class="contact-value">franciscotang3@gmail.com</span>
                         </div>
                     </a>
                     
@@ -682,13 +672,11 @@
         <p>&copy; 2026 Soluciones IT | Buenos Aires, Argentina</p>
     </footer>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Mobile menu toggle
+    <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
         
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -698,13 +686,11 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     document.getElementById('navLinks').classList.remove('active');
                 }
             });
         });
         
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -713,4 +699,14 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                  
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
